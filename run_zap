@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Zap
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan ZAP website
+    steps:
+    - name: ZAP Scan
+      uses: zaproxy/action-full-scan@v0.1.0
+      with:
+        target: '[URL TO YOUR APPLICATION HERE]'
